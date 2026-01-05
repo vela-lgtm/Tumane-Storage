@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Match Results | B-Division 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .results-container { padding: 40px 10%; background: #f9f9f9; min-height: 80vh; }
+        .results-filter { 
+            display: flex; justify-content: space-between; align-items: center; 
+            margin-bottom: 30px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .results-table { width: 100%; border-collapse: collapse; background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+        .results-table thead { background: var(--primary-blue); color: white; }
+        .results-table th, .results-table td { padding: 15px; text-align: center; border-bottom: 1px solid #eee; }
+        
+        .score-box { 
+            display: inline-block; background: #333; color: #fff; padding: 5px 15px; 
+            border-radius: 4px; font-weight: bold; font-size: 1.2rem; letter-spacing: 2px;
+        }
+        .team-name { font-weight: 600; width: 35%; color: #222; }
+        .status-final { color: var(--accent-green); font-weight: bold; font-size: 0.8rem; text-transform: uppercase; }
+        .match-date { color: #888; font-size: 0.85rem; }
+
+        @media (max-width: 600px) {
+            .team-name { font-size: 0.9rem; }
+            .score-box { padding: 3px 8px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">B-DIVISION <span style="color:var(--accent-green)">LEAGUE</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="results.html" class="active">Results</a></li>
+        <li><a href="standings.html">Standings</a></li>
+        <li><a href="zones.html">Zones</a></li>
+    </ul>
+</nav>
+
+<div class="results-container">
+    <div class="results-filter">
+        <h2 style="margin:0; color: var(--primary-blue);">Season 2025 Results</h2>
+        <select id="zoneFilter" onchange="filterResults()" style="padding: 10px; border-radius: 5px;">
+            <option value="all">All Zones</option>
+            <option value="matlameng">Matlameng Zone</option>
+            <option value="hlotse">Hlotse Zone</option>
+            <option value="maseru">Maseru Central</option>
+        </select>
+    </div>
+
+    <table class="results-table">
+        <thead>
+            <tr>
+                <th>Date / Status</th>
+                <th>Home Team</th>
+                <th>Score</th>
+                <th>Away Team</th>
+            </tr>
+        </thead>
+        <tbody id="resultsBody">
+            <!-- Result 1 -->
+            <tr data-zone="matlameng">
+                <td>
+                    <div class="match-date">Dec 15, 2025</div>
+                    <div class="status-final">Full Time</div>
+                </td>
+                <td class="team-name">Wondoerous FC</td>
+                <td><span class="score-box">2 - 0</span></td>
+                <td class="team-name">Letsie Stars</td>
+            </tr>
+
+            <!-- Result 2 -->
+            <tr data-zone="maseru">
+                <td>
+                    <div class="match-date">Dec 14, 2025</div>
+                    <div class="status-final">Full Time</div>
+                </td>
+                <td class="team-name">Sofaea FC</td>
+                <td><span class="score-box">4 - 0</span></td>
+                <td class="team-name">Sehlahla-Se-Maele</td>
+            </tr>
+
+            <!-- Result 3 -->
+            <tr data-zone="matlameng">
+                <td>
+                    <div class="match-date">Dec 14, 2025</div>
+                    <div class="status-final">Full Time</div>
+                </td>
+                <td class="team-name">Matlameng Utd</td>
+                <td><span class="score-box">1 - 1</span></td>
+                <td class="team-name">Happy Boys</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function filterResults() {
+        const filterValue = document.getElementById('zoneFilter').value;
+        const rows = document.querySelectorAll('#resultsBody tr');
+
+        rows.forEach(row => {
+            if (filterValue === 'all' || row.getAttribute('data-zone') === filterValue) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+</script>
+
+</body>
+</html>

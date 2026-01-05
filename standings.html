@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Standings | B Division League</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th { background: var(--primary); color: var(--accent); padding: 15px; text-align: left; }
+        td { padding: 15px; border-bottom: 1px solid #ddd; }
+        tr:hover { background: #f9f9f9; }
+        .pos { font-weight: bold; width: 30px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">B-Division League</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="standings.html">Standings</a>
+        <a href="fixtures.html">Fixtures</a>
+        <a href="login.html">Admin Login</a>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="card">
+        <h1>League Standings</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Team</th>
+                    <th>PL</th>
+                    <th>W</th>
+                    <th>D</th>
+                    <th>L</th>
+                    <th>GD</th>
+                    <th>PTS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="pos">1</td>
+                    <td>City Lions FC</td>
+                    <td>10</td>
+                    <td>8</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>+15</td>
+                    <td>25</td>
+                </tr>
+                <!-- More rows will be added via PHP later -->
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | B-Division League</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .admin-container { padding: 50px 10%; background: #f4f4f4; min-height: 100vh; }
+        .form-card { 
+            background: white; padding: 30px; border-radius: 12px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); margin-bottom: 40px; 
+        }
+        .form-group { margin-bottom: 20px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: var(--primary-blue); }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 6px; font-size: 1rem;
+        }
+        .btn-submit {
+            background: var(--primary-blue); color: white; border: none; 
+            padding: 12px 25px; border-radius: 6px; cursor: pointer; font-weight: bold;
+        }
+        .btn-submit:hover { background: var(--accent-green); color: var(--primary-blue); }
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">B-DIVISION <span style="color:var(--accent-green)">ADMIN</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html">View Site</a></li>
+        <li><a href="teams.html">Manage Teams</a></li>
+        <li><a href="login.html" class="admin-btn">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="admin-container">
+    <h1>System Administration 2025</h1>
+    
+    <!-- FORM 1: REGISTER NEW TEAM -->
+    <div class="form-card">
+        <h2>Register New Team</h2>
+        <form id="teamForm">
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Team Name</label>
+                    <input type="text" placeholder="e.g., Matlameng United" required>
+                </div>
+                <div class="form-group">
+                    <label>District & Zone</label>
+                    <select required>
+                        <option value="">Select Zone...</option>
+                        <optgroup label="Leribe">
+                            <option>Hlotse Zone</option>
+                            <option>Maputsoe Zone</option>
+                            <option>Matlameng Zone</option>
+                        </optgroup>
+                        <optgroup label="Maseru">
+                            <option>Maseru North</option>
+                            <option>Maseru South</option>
+                        </optgroup>
+                        <!-- Add other zones here -->
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Head Coach Name</label>
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Coach License Level</label>
+                    <select>
+                        <option>CAF A</option>
+                        <option>CAF B</option>
+                        <option>CAF C</option>
+                        <option>Local License</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Home Ground (Stadium)</label>
+                    <input type="text" placeholder="e.g., Pitso Ground">
+                </div>
+                <div class="form-group">
+                    <label>Team Logo (Upload)</label>
+                    <input type="file" accept="image/*">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">Register Team</button>
+        </form>
+    </div>
+
+    <!-- FORM 2: REGISTER PLAYERS -->
+    <div class="form-card">
+        <h2>Register Player to Team</h2>
+        <form id="playerForm">
+            <div class="form-group">
+                <label>Select Team</label>
+                <select required>
+                    <option value="">-- Select Registered Team --</option>
+                    <option>Lions FC</option>
+                    <option>Rovers United</option>
+                    <option>City Blues</option>
+                </select>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Player Full Name</label>
+                    <input type="text" placeholder="First & Last Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Registration Number (ID)</label>
+                    <input type="text" placeholder="LEFA-2025-XXXX" required>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="form-group">
+                    <label>Position</label>
+                    <select>
+                        <option>Goalkeeper</option>
+                        <option>Defender</option>
+                        <option>Midfielder</option>
+                        <option>Forward</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Player Photo</label>
+                <input type="file" accept="image/*">
+            </div>
+
+            <button type="submit" class="btn-submit">Register Player</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Simple alert to simulate saving
+    document.querySelectorAll('form').forEach(form => {
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Data submitted successfully to the 2025 League Database!');
+        });
+    });
+</script>
+
+</body>
+</html>

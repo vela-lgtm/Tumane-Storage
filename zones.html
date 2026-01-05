@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>League Zones | B Division League 2025</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav>
+    <div class="logo">B-DIVISION <span style="color:var(--accent-green)">LEAGUE</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="zones.html" class="active">Zones</a></li>
+        <li><a href="standings.html">Standings</a></li>
+        <li><a href="fixtures.html">Fixtures</a></li>
+        <li><a href="login.html" class="admin-btn">Admin</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <h1>DISTRICT ZONES</h1>
+    <p>Connecting the Matlameng community to the big stage for the 2025 Season.</p>
+</section>
+
+<div class="main-container">
+    <div class="card">
+        <h2 style="color: var(--primary-blue); text-align: center; margin-bottom: 20px;">Active District</h2>
+        <p style="text-align: center; margin-bottom: 30px;">Select the Matlameng zone to view league details.</p>
+
+        <div class="zone-grid" style="display: flex; justify-content: center;">
+            <!-- ONLY LERIBE / MATLAMENG -->
+            <div class="district-card" style="max-width: 400px; width: 100%;" onclick="toggleZones('leribe-zones')">
+                <h3>Leribe</h3>
+                <div id="leribe-zones" class="zone-list" style="display: block;">
+                    <a href="standings.html?zone=matlameng" class="zone-link" style="background: var(--accent-green); color: white;">Matlameng Zone</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleZones(id) {
+        const list = document.getElementById(id);
+        const isVisible = list.style.display === "block";
+        list.style.display = isVisible ? "none" : "block";
+    }
+</script>
+
+</body>
+</html>

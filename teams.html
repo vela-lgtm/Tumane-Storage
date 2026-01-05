@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | B-Division League 2025</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-blue: #002d72;
+            --accent-green: #28a745;
+            --light-bg: #f8f9fa;
+        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--light-bg); margin: 0; }
+        .admin-container { padding: 40px 10%; }
+        .form-card { 
+            background: white; padding: 30px; border-radius: 12px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08); margin-bottom: 50px; 
+        }
+        .form-header { border-bottom: 2px solid var(--light-bg); margin-bottom: 25px; padding-bottom: 10px; }
+        .form-header h2 { color: var(--primary-blue); margin: 0; }
+        
+        .grid-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px; }
+        .form-group { display: flex; flex-direction: column; }
+        label { font-weight: 600; margin-bottom: 8px; color: #444; font-size: 0.9rem; }
+        input, select, textarea { 
+            padding: 12px; border: 1px solid #ddd; border-radius: 6px; outline: none; transition: 0.3s;
+        }
+        input:focus, select:focus { border-color: var(--primary-blue); box-shadow: 0 0 5px rgba(0,45,114,0.2); }
+        
+        .btn-save { 
+            background: var(--primary-blue); color: white; border: none; padding: 15px 30px; 
+            border-radius: 6px; font-weight: bold; cursor: pointer; font-size: 1rem;
+        }
+        .btn-save:hover { background: var(--accent-green); color: var(--primary-blue); }
+
+        @media (max-width: 768px) { .grid-row { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">ADMIN <span style="color:var(--accent-green)">PORTAL</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html">Live Site</a></li>
+        <li><a href="zones.html">Zones</a></li>
+        <li><a href="teams.html">Teams</a></li>
+        <li><a href="#" style="color:var(--accent-green)">Logout</a></li>
+    </ul>
+</nav>
+
+<div class="admin-container">
+    <h1>League Management 2025</h1>
+
+    <!-- TEAM REGISTRATION FORM -->
+    <div class="form-card">
+        <div class="form-header">
+            <h2>Add New Club</h2>
+            <p>Enter team details to register them into the central system.</p>
+        </div>
+        <form id="teamForm">
+            <div class="grid-row">
+                <div class="form-group">
+                    <label>Club Full Name</label>
+                    <input type="text" placeholder="e.g. Matlameng United FC" required>
+                </div>
+                <div class="form-group">
+                    <label>Assign to Zone (All Lesotho Districts)</label>
+                    <select required>
+                        <option value="">-- Select Zone --</option>
+                        <optgroup label="Butha-Buthe">
+                            <option>Butha-Buthe North</option>
+                            <option>Butha-Buthe South</option>
+                        </optgroup>
+                        <optgroup label="Leribe">
+                            <option>Hlotse Zone</option>
+                            <option>Maputsoe Zone</option>
+                            <option>Matlameng Zone</option>
+                            <option>Peka Zone</option>
+                        </optgroup>
+                        <optgroup label="Berea">
+                            <option>Teyateyaneng Zone</option>
+                            <option>Mapoteng Zone</option>
+                        </optgroup>
+                        <optgroup label="Maseru">
+                            <option>Maseru North</option>
+                            <option>Maseru South</option>
+                            <option>Maseru Central</option>
+                        </optgroup>
+                        <optgroup label="Mafeteng">
+                            <option>Mafeteng Central</option>
+                            <option>Likhoele Zone</option>
+                        </optgroup>
+                        <optgroup label="Mohale's Hoek">
+                            <option>Mohale's Hoek Town</option>
+                            <option>Taung Zone</option>
+                        </optgroup>
+                        <optgroup label="Quthing">
+                            <option>Moyeni Zone</option>
+                            <option>Mosing Zone</option>
+                        </optgroup>
+                        <optgroup label="Qacha's Nek">
+                            <option>Qacha's Nek Central</option>
+                            <option>Sekake Zone</option>
+                        </optgroup>
+                        <optgroup label="Mokhotlong">
+                            <option>Mokhotlong Central</option>
+                        </optgroup>
+                        <optgroup label="Thaba-Tseka">
+                            <option>Thaba-Tseka Town</option>
+                            <option>Mashai Zone</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="form-group">
+                    <label>Head Coach Name</label>
+                    <input type="text" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Home Ground / Stadium</label>
+                    <input type="text" placeholder="e.g. DiFA Ground" required>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="form-group">
+                    <label>Club Logo</label>
+                    <input type="file" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label>Club Contact (Phone/Email)</label>
+                    <input type="text" placeholder="+266 ...">
+                </div>
+            </div>
+
+            <button type="submit" class="btn-save">Save & Register Club</button>
+        </form>
+    </div>
+
+
+<!-- POST MATCH RESULT FORM -->
+<div class="form-card">
+    <div class="form-header">
+        <h2>Post Match Result</h2>
+        <p>Update the league scores after a match has finished.</p>
+    </div>
+    <form id="resultForm">
+        <div class="grid-row">
+            <div class="form-group">
+                <label>Home Team</label>
+                <select required>
+                    <option>Wondoerous FC</option>
+                    <option>Matlameng Utd</option>
+                    <option>Sofaea FC</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Away Team</label>
+                <select required>
+                    <option>Letsie Stars</option>
+                    <option>Happy Boys</option>
+                    <option>Sehlahla-Se-Maele</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="grid-row">
+            <div class="form-group">
+                <label>Home Score</label>
+                <input type="number" min="0" placeholder="0" required>
+            </div>
+            <div class="form-group">
+                <label>Away Score</label>
+                <input type="number" min="0" placeholder="0" required>
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label>Match Date</label>
+            <input type="date" required>
+        </div>
+
+        <button type="submit" class="btn-save">Post Result to Tab</button>
+    </form>
+</div>
+
+
+
+
+    <!-- PLAYER REGISTRATION FORM -->
+    <div class="form-card">
+        <div class="form-header">
+            <h2>Register Player</h2>
+            <p>Add a player to an existing 2025 B-Division roster.</p>
+        </div>
+        <form id="playerForm">
+            <div class="form-group" style="margin-bottom: 20px;">
+                <label>Select Club</label>
+                <select required>
+                    <option value="">-- Choose Registered Team --</option>
+                    <option>Lions FC</option>
+                    <option>Rovers United</option>
+                    <option>City Blues</option>
+                    <option>Matlameng FC</option>
+                </select>
+            </div>
+
+            <div class="grid-row">
+                <div class="form-group">
+                    <label>Player Full Name</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>LEFA ID Number</label>
+                    <input type="text" placeholder="B-25-XXXX" required>
+                </div>
+            </div>
+
+            <div class="grid-row">
+                <div class="form-group">
+                    <label>Position</label>
+                    <select>
+                        <option>Goalkeeper</option>
+                        <option>Defender</option>
+                        <option>Midfielder</option>
+                        <option>Forward</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-save">Complete Player Registration</button>
+        </form>
+    </div>
+</div>
+
+<script>
+    // Visual confirmation for the admin
+    document.getElementById('teamForm').onsubmit = (e) => {
+        e.preventDefault();
+        alert('Team Registered Successfully! It will now appear in the Teams and Zones sections.');
+    };
+
+    document.getElementById('playerForm').onsubmit = (e) => {
+        e.preventDefault();
+        alert('Player Registered Successfully and added to the team roster.');
+    };
+</script>
+
+</body>
+</html>

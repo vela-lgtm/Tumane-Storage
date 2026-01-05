@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B Division League | Official Home</title>
+    <link rel="stylesheet" href="style.css">
+	
+</head>
+<body>
+
+<!-- ORGANIZED NAVIGATION -->
+<nav>
+    <div class="logo">B-DIVISION <span style="color:var(--accent-green)">LEAGUE</span></div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="standings.html">Standings</a></li>
+        <li><a href="fixtures.html">Fixtures</a></li>
+        <li><a href="stats.html">Stats</a></li>
+		<li><a href="about.html">About</a></li>
+		<li><a href="zones.html">Zones</a></li>
+		<li><a href="login.html" style="background:var(--accent-green); color:var(--primary-blue); padding:8px 15px; border-radius:5px; border:none;">Admin</a></li>
+    </ul>
+</nav>
+
+<!-- Hero Section with added ID for background switching -->
+<section class="hero" id="hero-bg-switcher">
+    <h1 style="font-size: 3.5rem; margin:0;">ELITE LOCAL FOOTBALL</h1>
+    <p style="font-size: 1.2rem; opacity: 0.9;">Professional Standards. Local Passion.</p>
+</section>
+
+<!-- START OF MOVING OBJECTIVES TICKER -->
+<div class="mission-container">
+    <div class="mission-content">
+        <h2 class="mission-stationary">
+          <!-- MISSION & ROTATING OBJECTIVES SECTION -->
+<div class="mission-container">
+    <div class="mission-content">
+      <!-- THE VIBRANT WAVE ANIMATED TEXT -->
+<!-- THE SLOW VIBRANT WAVE MISSION STATEMENT -->
+<h2 class="animated-text" style="
+    font-weight: 900;
+    line-height: 1.6;
+    background: linear-gradient(to right, 
+        #002d72,   /* Dark Blue */
+        #FF0000,   /* Bright Red */
+        #FFEB3B,   /* Bright Yellow */
+        #00BFFF,   /* Light Blue */
+        #2ecc71,   /* Accent Green */
+        #FF0000,   /* Bright Red */
+        #002d72    /* Back to Dark Blue */
+    );
+    background-size: 400% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* Changed to 15 seconds for a very slow, smooth wave */
+    animation: waveRunning 15s linear infinite; 
+    display: block;
+    text-align: center;
+    filter: drop-shadow(0px 2px 2px rgba(0,0,0,0.1)); /* Soft shadow for visibility */
+">
+    "This <span style="text-transform: uppercase;">Digital Platform</span> is designed to ensure 
+    <span style="border-bottom: 3px solid #2ecc71;">no talent goes unseen</span>. We provide the 
+    digital infrastructure to turn local matches into professional showcases, giving our youth the 
+    <span style="
+        background: #002d72; 
+        color: #2ecc71; 
+        -webkit-text-fill-color: #2ecc71; 
+        padding: 2px 12px; 
+        border-radius: 6px; 
+        display: inline-block; 
+        transform: rotate(-2deg); 
+        box-shadow: 4px 4px 0px #FF0000; /* Bright Red Shadow */
+        margin: 0 5px;
+    ">'Big Stage'</span> they deserve."
+</h2>
+
+<!-- REQUIRED ANIMATION LOGIC (Add this to your CSS file or a <style> block) -->
+<style>
+    @keyframes waveRunning {
+        0% { background-position: 0% center; }
+        100% { background-position: 400% center; }
+    }
+</style>
+
+
+<!-- REQUIRED ANIMATION LOGIC (Must be in a <style> block or style.css) -->
+<style>
+    @keyframes waveRunning {
+        to { background-position: 400% center; }
+    }
+</style>
+
+    </div>
+
+    <!-- ROTATING OBJECTIVE BOX -->
+    <div class="rotator-box" id="objective-display">
+        <span id="objective-text">Elite Player Development</span>
+    </div>
+</div>
+
+<script>
+    // Professional Rotator Logic (10 Second Intervals)
+    const objectives = [
+        { text: "Elite Player Development", class: "rot-blue" },
+        { text: "Technological Innovation", class: "rot-green" },
+        { text: "National Recognition", class: "rot-white" },
+        { text: "Absolute Data Transparency", class: "rot-blue" },
+        { text: "Inspiring Future Stars", class: "rot-green" },
+        { text: "Professional Infrastructure", class: "rot-white" }
+    ];
+
+    let currentIndex = 0;
+    const textElement = document.getElementById("objective-text");
+    const boxElement = document.getElementById("objective-display");
+
+    function rotateObjective() {
+        // Step 1: Fade out
+        boxElement.style.opacity = "0";
+        boxElement.style.transform = "translateY(10px)";
+
+        setTimeout(() => {
+            // Step 2: Change Content and Colors
+            currentIndex = (currentIndex + 1) % objectives.length;
+            textElement.innerText = objectives[currentIndex].text;
+            
+            // Remove old classes and add new one
+            boxElement.className = "rotator-box " + objectives[currentIndex].class;
+
+            // Step 3: Fade in
+            boxElement.style.opacity = "1";
+            boxElement.style.transform = "translateY(0)";
+        }, 800); // Wait for fade out to finish
+    }
+
+    // Interval set to 10 seconds as requested
+    setInterval(rotateObjective, 10000);
+</script>
+
+        </h2>
+    </div>
+
+    <div class="objectives-ticker">
+        <div class="ticker-content">
+            <!-- First Set of Objectives -->
+            <div class="obj-item blue-box">Elite Player Development</div>
+            <div class="obj-item green-box">Technological Innovation</div>
+            <div class="obj-item white-box">National Recognition</div>
+            <div class="obj-item blue-box">Absolute Data Transparency</div>
+            <div class="obj-item green-box">Inspiring Future Stars</div>
+            <div class="obj-item white_box">Professional Infrastructure</div>
+            
+            <!-- Duplicated for a seamless loop -->
+            <div class="obj-item blue-box">Elite Player Development</div>
+            <div class="obj-item green-box">Technological Innovation</div>
+            <div class="obj-item white_box">National Recognition</div>
+            <div class="obj-item blue-box">Absolute Data Transparency</div>
+            <div class="obj-item green-box">Inspiring Future Stars</div>
+            <div class="obj_item white_box">Professional Infrastructure</div>
+        </div>
+    </div>
+</div>
+<!-- END OF MOVING OBJECTIVES TICKER -->
+
+
+<div class="main-container">
+    <!-- MAIN NEWS -->
+    <div class="card">
+        <h2 style="color: var(--primary-blue); border-left: 5px solid var(--accent-green); padding-left: 15px;">Latest Headlines</h2>
+        <img src="images.unsplash.com" alt="Football" style="width:100%; border-radius:8px; margin:20px 0;">
+        <h3>Season 2025/26 Registration Now Open</h3>
+        <p>The B Division League committee is proud to announce that registration for the upcoming season is officially open. Ensure your team meets the professional criteria established by the board.</p>
+    </div>
+
+ 
+
+
+<!-- ORGANIZED FOOTER WITH QUICK LINKS -->
+<footer>
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h4>About BDL</h4>
+            <p>The premier local division focusing on player development and professional football standards since 2015.</p>
+        </div>
+        
+        <div class="footer-section footer-col">
+            <h4>Quick Links</h4>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="standings.html">League Table</a></li>
+                <li><a href="fixtures.html">Match Fixtures</a></li>
+                <li><a href="stats.html">Player Rankings</a></li>
+            </ul>
+        </div>
+        
+        <div class="footer-col">
+            <h4>Support & Legal</h4>
+            <ul>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Rule Book</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="login.html">Administrator Login</a></li>
+            </ul>
+        </div>
+    </div>
+    <div style="text-align:center; margin-top: 40px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px; font-size: 0.8rem;">
+        <p>&copy; 2025 B Division League. All Rights Reserved.</p>
+    </div>
+</footer>
+
+<!-- BACKGROUND IMAGE SWITCHER SCRIPT -->
+<script>
+    const heroSection = document.getElementById('hero-bg-switcher');
+    
+    // Corrected array (removed the duplicate 'const ballImages' line)
+    const ballImages = [
+        'Balls/ball_1.png', 
+        'Balls/ball_2.png', 
+        'Balls/ball_3.png', 
+        'Balls/ball_4.png', 
+        'Balls/ball_5.png', 
+        'Balls/ball_6.png', 
+        'Balls/ball_7.png', 
+        'Balls/ball_8.jpg', 
+        'Balls/ball_9.jpg'
+    ];
+
+    let ballIndex = 0;
+
+    function switchHeroBackground() {
+        ballIndex = (ballIndex + 1) % ballImages.length;
+        // Applying the blue overlay tint
+        heroSection.style.backgroundImage = `linear-gradient(rgba(0, 45, 114, 0.8), rgba(0, 45, 114, 0.8)), url('${ballImages[ballIndex]}')`;
+    }
+
+    // Set initial image immediately
+    heroSection.style.backgroundImage = `linear-gradient(rgba(0, 45, 114, 0.8), rgba(0, 45, 114, 0.8)), url('${ballImages[0]}')`;
+    
+    // Switch every 5 seconds
+    setInterval(switchHeroBackground, 5000);
+</script>
+
+
+</body>
+</html>
